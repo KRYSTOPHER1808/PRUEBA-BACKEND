@@ -1,0 +1,168 @@
+/* Estilo para el título del formulario */
+h2 {
+    font-size: 1.8rem;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Estilo para el formulario */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+/* Estilo para las etiquetas (labels) */
+label {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+/* Estilo para los campos de entrada (input) */
+input[type="text"],
+input[type="number"] {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Efecto en foco para los campos de entrada */
+input[type="text"]:focus,
+input[type="number"]:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+/* Estilo para el botón de enviar */
+button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 50px;
+    color: #333;
+}
+
+/* Estilo para el contenedor de la tabla */
+.tabla-container {
+    max-height: 300px; /* Altura máxima para la tabla */
+    overflow-y: auto; /* Barra de desplazamiento vertical */
+    border: 1px solid #ccc; /* Bordes alrededor del contenedor */
+    margin-top: 20px; /* Espaciado superior */
+}
+
+/* Estilo para la tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+table th {
+    background-color: #f4f4f4;
+    color: #333;
+    font-weight: bold;
+}
+
+table tr:hover {
+    background-color: #f1f1f1;
+}
+
+table td {
+    color: #555;
+}
+
+/* Estilo para el contenedor de búsqueda */
+.buscar-container {
+    display: flex;
+    justify-content: flex-end; /* Alinear a la derecha */
+    margin-top: 20px; /* Espacio superior para separar del título */
+
+}
+
+/* Estilo para el campo de búsqueda */
+.buscar-input {
+    padding-top:  8px; /* Padding */
+    font-size: 0.9rem; /* Tamaño de fuente */
+    border: 1px solid #ccc; /* Borde */
+    border-radius: 4px; /* Bordes redondeados */
+    margin-right: 5px; /* Espacio entre el campo y el botón */
+    width: 180px; /* Ancho del campo de búsqueda */
+    box-sizing: border-box; /* Incluye padding y borde en el ancho total */
+    margin-top: 0;
+    flex-grow: 1;
+}
+
+/* Estilo para el botón de búsqueda */
+.buscar-button {
+    background-color: #007bff; /* Color de fondo del botón */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    padding: 8px; /* Igualar la altura del botón al campo de texto */
+    font-size: 0.9rem; /* Tamaño de fuente igual al campo de búsqueda */
+    border-radius: 4px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: background-color 0.3s ease; /* Efecto de transición */
+    flex-grow: 0;
+    height: 40px;
+}
+
+.buscar-button:hover {
+    background-color: #0056b3; /* Color al pasar el cursor sobre el botón */
+}
+
