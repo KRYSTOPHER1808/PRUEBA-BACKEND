@@ -1,0 +1,112 @@
+/* Estilo general para el contenedor del modal */
+/* Estilos generales para centrar la ventana modal */
+.modalE {
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro con opacidad */
+}
+
+.modal-contentE {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Ancho del modal */
+    max-width: 500px; /* Ancho máximo del modal */
+    border-radius: 5px;
+    position: relative;
+}
+
+.close-buttonE {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-buttonE:hover,
+.close-buttonE:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+.contenido_modalsE {
+    background-color: #f9f9f9; /* Fondo claro */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra para el contenedor */
+    padding: 20px; /* Espaciado interno */
+    width: 300px; /* Ancho del modal */
+    margin: 20px auto; /* Centrando el modal en la pantalla */
+    position: relative; /* Posicionamiento relativo para el cierre */
+}
+
+/* Estilo para el encabezado del modal */
+.enunciadoE {
+    font-size: 20px; /* Tamaño de fuente */
+    margin-bottom: 15px; /* Espacio debajo del encabezado */
+    color: #333; /* Color del texto */
+}
+
+/* Estilo para los datos del producto */
+.datosProuctosE {
+    font-size: 14px; /* Tamaño de fuente */
+    margin-bottom: 15px; /* Espacio debajo del texto */
+    color: #666; /* Color del texto */
+}
+
+/* Estilo para las etiquetas de los campos */
+.nombreEd,
+.presioEd {
+    font-size: 14px; /* Tamaño de fuente */
+    margin-bottom: 5px; /* Espacio debajo de las etiquetas */
+    color: #333; /* Color del texto */
+    display: block; /* Cambiar a bloque para un mejor diseño */
+}
+
+/* Estilo para los campos de entrada */
+.nombreE,
+.precioE {
+    width: calc(100% - 10px); /* Ancho completo menos un margen */
+    padding: 8px; /* Espaciado interno */
+    border: 1px solid #ccc; /* Borde de los campos */
+    border-radius: 4px; /* Bordes redondeados */
+    font-size: 14px; /* Tamaño de fuente */
+    margin-bottom: 15px; /* Espacio debajo de los campos */
+}
+
+/* Estilo para el botón Aceptar */
+.btnaceptar {
+    background-color: #4CAF50; /* Color de fondo verde */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    padding: 10px 15px; /* Espaciado interno */
+    border-radius: 4px; /* Bordes redondeados */
+    cursor: pointer; /* Cambiar cursor a puntero */
+    font-size: 16px; /* Tamaño de fuente */
+    margin-right: 10px; /* Espacio a la derecha */
+}
+
+/* Estilo para el botón Cancelar */
+.btncancelar {
+    background-color: #f44336; /* Color de fondo rojo */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    padding: 10px 15px; /* Espaciado interno */
+    border-radius: 4px; /* Bordes redondeados */
+    cursor: pointer; /* Cambiar cursor a puntero */
+    font-size: 16px; /* Tamaño de fuente */
+}
+
+/* Efecto de hover para los botones */
+.btnaceptar:hover {
+    background-color: #45a049; /* Color de fondo más oscuro al pasar el ratón */
+}
+
+.btncancelar:hover {
+    background-color: #e53935; /* Color de fondo más oscuro al pasar el ratón */
+}

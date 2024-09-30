@@ -34,7 +34,7 @@ function insertarDatosEnTabla(productos) {
         const btnEditar = document.createElement("button");
         btnEditar.textContent = "Editar";
         btnEditar.classList.add("btn-editar");
-        btnEditar.addEventListener("click", () => editarProducto(producto.id)); // Asigna la función para editar
+        btnEditar.addEventListener("click", () => mostrarModalEditar(producto)); // Asigna la función para editar
         celdaAcciones.appendChild(btnEditar);
 
         // Botón para borrar
@@ -151,21 +151,20 @@ async function borrarProducto(id) {
 }
 
 // Función para editar un producto
-async function editarProducto(id) {
-    const nuevoNombre = prompt("Introduce el nuevo nombre del producto:");
-    const nuevoPrecio = prompt("Introduce el nuevo precio del producto:");
-
+async function editarProducto(productoEditado1) {
+    const nuevoNombre = productoEditado1.nombre;
+    const nuevoPrecio = parseFloat(productoEditado1.precio);
     if (nuevoNombre && nuevoPrecio) {
-        const productoEditado = {
+        const productoEditado2 = {
             nombre: nuevoNombre,
             precio: parseFloat(nuevoPrecio)
         };
 
         try {
             // Realizamos la solicitud para editar el producto
-            const respuesta = await fetch(`http://localhost:4000/productosE/${id}`, {
+            const respuesta = await fetch(`http://localhost:4000/productosE/${productoEditado1.id}`, {
                 method: "PUT",
-                body: JSON.stringify(productoEditado),
+                body: JSON.stringify(productoEditado2),
                 headers: {
                     "Content-Type": "application/json"
                 }

@@ -7,9 +7,10 @@
     <link rel="icon" href="data:,">
     <link rel="stylesheet" href="./FRONT/index.css">
     <link rel="stylesheet" href="./FRONT/confirmarBorrado.css">
+    <link rel="stylesheet" href="./FRONT/modalEditar.css">
     <script src="./FRONT/confirmarBorrado.js" defer></script>
+    <script src="./FRONT/modalEditar.js"></script>
     <script src="./FRONT/index.js" defer></script>
-     
 </head>
 <body>
     <div class="container">
@@ -58,11 +59,20 @@
             </table>
         </div>
     </div>
-    <!-- Contenedor para la modal -->
+    <!-- Contenedor para la modal confirmacion borrar -->
     <div class="modal" id="myModal" style="display: none;">
         <div class="modal-content">
             <span class="close-button" id="closeModal">&times;</span>
             <div id="modalBody">
+                <!-- Aquí se inyectará el contenido del modal -->
+            </div>
+        </div>
+    </div>
+        <!-- Contenedor para la modal editar producto -->
+    <div class="modalE" id="myModaE" style="display: none;">
+        <div class="modal-contentE">
+            <span class="close-buttonE" id="closeModalE">&times;</span>
+            <div id="modalBodyE">
                 <!-- Aquí se inyectará el contenido del modal -->
             </div>
         </div>
