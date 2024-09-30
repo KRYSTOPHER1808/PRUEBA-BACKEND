@@ -27,11 +27,28 @@ function insertarDatosEnTabla(productos) {
 
         const celdaPrecio = document.createElement("td");
         celdaPrecio.textContent = `$${producto.precio.toFixed(2)}`; // Precio del producto con 2 decimales
+        // Celda de acciones (Borrar, Editar)
+        const celdaAcciones = document.createElement("td");
+        celdaAcciones.classList.add("celda-acciones");
+        // Botón para editar
+        const btnEditar = document.createElement("button");
+        btnEditar.textContent = "Editar";
+        btnEditar.classList.add("btn-editar");
+        btnEditar.addEventListener("click", () => editarProducto(producto.id)); // Asigna la función para editar
+        celdaAcciones.appendChild(btnEditar);
 
+        // Botón para borrar
+        const btnBorrar = document.createElement("button");
+        btnBorrar.textContent = "Borrar";
+        btnBorrar.classList.add("btn-borrar");
+        btnBorrar.addEventListener("click", () => borrarProducto(producto.id)); // Asigna la función para borrar
+        celdaAcciones.appendChild(btnBorrar);        
+        
         // Agregamos las celdas a la fila
         fila.appendChild(celdaId);
         fila.appendChild(celdaNombre);
         fila.appendChild(celdaPrecio);
+        fila.appendChild(celdaAcciones); 
 
         // Agregamos la fila al tbody
         tbody.appendChild(fila);
@@ -111,5 +128,66 @@ document.getElementById("btnBuscar").addEventListener("click", async function(ev
         alert("Ocurrió un error al realizar la búsqueda");
     }
 });
+
+// Función para borrar un producto
+async function borrarProducto(id) {
+    try {
+        const respuesta = await fetch(`http://localhost:4000/productosBr/${id}`, {
+            method: "DELETE"
+        });
+
+        if (respuesta.ok) {
+            alert("Producto borrado con éxito.");
+            const datosActualizados = await getDatos();
+            insertarDatosEnTabla(datosActualizados.recordset);
+        } else {
+            alert("Error al borrar el producto.");
+        }
+    } catch (error) {
+        console.error("Error al borrar el producto:", error);
+        alert("Ocurrió un error al borrar el producto.");
+    }
+}
+
+// Función para editar un producto
+async function editarProducto(id) {
+    const nuevoNombre = prompt("Introduce el nuevo nombre del producto:");
+    const nuevoPrecio = prompt("Introduce el nuevo precio del producto:");
+
+    if (nuevoNombre && nuevoPrecio) {
+        const productoEditado = {
+            nombre: nuevoNombre,
+            precio: parseFloat(nuevoPrecio)
+        };
+
+        try {
+            // Realizamos la solicitud para editar el producto
+            const respuesta = await fetch(`http://localhost:4000/productosE/${id}`, {
+                method: "PUT",
+                body: JSON.stringify(productoEditado),
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            });
+
+            const datos = await respuesta.json(); // Asegúrate de esperar la conversión a JSON
+
+            if (respuesta.ok) {
+                alert("Producto editado con éxito");
+                const datosActualizados = await getDatos();
+                insertarDatosEnTabla(datosActualizados.recordset); 
+            } else {
+                // Aquí manejamos el error
+                alert(`Error al editar el producto: ${datos.error}`);
+            }
+        } catch (error) {
+            console.error("Error al editar el producto:", error);
+            alert("Ocurrió un error al editar el producto.");
+        }
+    } else {
+        alert("Nombre o precio no válidos.");
+    }
+}
+
 
 

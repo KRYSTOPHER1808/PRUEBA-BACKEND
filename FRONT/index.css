@@ -1,3 +1,38 @@
+/* Asegurarse de que los botones ocupen el 50% del ancho de la celda */
+.celda-acciones {
+    display: flex;
+    justify-content: space-between; /* Distribuye el espacio entre los botones */
+}
+
+.btn-editar, .btn-borrar {
+    flex: 1; /* Ocupan el mismo espacio (50% cada uno) */
+    margin: 0 5px; /* Añade un pequeño margen entre ellos */
+    padding: 5px 0; /* Añade padding vertical para hacer los botones más altos */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center; /* Centrar el texto dentro del botón */
+}
+
+.btn-editar {
+    background-color: #6bbefd; /* Color amarillo para editar */
+    color: white;
+}
+
+.btn-borrar {
+    background-color: #dc3545; /* Color rojo para borrar */
+    color: white;
+}
+
+.btn-editar:hover {
+    background-color: #c6d6f2;
+}
+
+.btn-borrar:hover {
+    background-color: #c82333;
+}
+
+
 /* Estilo para el título del formulario */
 h2 {
     font-size: 1.8rem;

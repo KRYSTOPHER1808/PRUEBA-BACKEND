@@ -68,6 +68,66 @@ app.post("/productosB", async (req, res) => {
         res.status(500).json({ error: "Error al buscar productos: " + error.message });
     }
 });
+// Ruta para borrar un producto por su ID
+app.delete("/productosBr/:id", async (req, res) => {
+    const { id } = req.params; // El ID del producto se pasará como parámetro en la URL
+
+    try {
+        const pool = await database.getConnection();
+
+        // Consulta SQL para borrar el producto por ID
+        const query = `DELETE FROM productos WHERE id = @id`;
+
+        // Ejecutar la consulta con el parámetro ID
+        const result = await pool.request()
+            .input('id', sql.Int, id) // El ID es un entero
+            .query(query);
+
+        if (result.rowsAffected[0] > 0) {
+            res.json({ message: "Producto eliminado exitosamente." });
+        } else {
+            res.status(404).json({ error: "Producto no encontrado." });
+        }
+    } catch (error) {
+        res.status(500).json({ error: "Error al eliminar el producto: " + error.message });
+    }
+});
+// Ruta para editar un producto por su ID
+app.put("/productosE/:id", async (req, res) => {
+    const { id } = req.params; // El ID del producto a editar se pasa como parámetro en la URL
+    const { nombre, precio } = req.body; // Los nuevos valores que quieres actualizar
+
+    // Validación de los campos obligatorios
+    if (!nombre || typeof nombre !== 'string' || nombre.trim() === "") {
+        return res.status(400).json({ error: "El nombre es obligatorio y debe ser un texto." });
+    }
+
+    try {
+        const pool = await database.getConnection();
+
+        // Consulta SQL para actualizar el producto
+        const query = `UPDATE productos SET nombre = @nombre, precio = @precio WHERE id = @id`;
+
+        // Ejecutar la consulta con los parámetros
+        const result = await pool.request()
+            .input('id', sql.Int, id)
+            .input('nombre', sql.VarChar, nombre)
+            .input('precio', sql.Decimal(10, 2), precio)
+            .query(query);
+
+        if (result.rowsAffected[0] > 0) {
+            //res.json({ message: "Producto actualizado exitosamente." });
+            res.json(result);
+        } else {
+            res.status(404).json({ error: "Producto no encontrado." });
+        }
+    } catch (error) {
+        res.status(500).json({ error: "Error al actualizar el producto: " + error.message });
+    }
+});
+
+
+
 
 
 
