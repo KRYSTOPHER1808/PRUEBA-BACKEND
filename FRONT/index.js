@@ -41,7 +41,8 @@ function insertarDatosEnTabla(productos) {
         const btnBorrar = document.createElement("button");
         btnBorrar.textContent = "Borrar";
         btnBorrar.classList.add("btn-borrar");
-        btnBorrar.addEventListener("click", () => borrarProducto(producto.id)); // Asigna la función para borrar
+        btnBorrar.addEventListener("click", () => mostrarModalBorrado(producto)); // Llamar a la función para mostrar la modal
+        //btnBorrar.addEventListener("click", () => borrarProducto(producto.id)); // Asigna la función para borrar
         celdaAcciones.appendChild(btnBorrar);        
         
         // Agregamos las celdas a la fila
@@ -129,7 +130,7 @@ document.getElementById("btnBuscar").addEventListener("click", async function(ev
     }
 });
 
-// Función para borrar un producto
+    // Función para borrar un producto
 async function borrarProducto(id) {
     try {
         const respuesta = await fetch(`http://localhost:4000/productosBr/${id}`, {
@@ -188,6 +189,7 @@ async function editarProducto(id) {
         alert("Nombre o precio no válidos.");
     }
 }
+
 
 
 

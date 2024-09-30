@@ -6,7 +6,10 @@
     <title>Tabla de Productos</title>
     <link rel="icon" href="data:,">
     <link rel="stylesheet" href="./FRONT/index.css">
+    <link rel="stylesheet" href="./FRONT/confirmarBorrado.css">
+    <script src="./FRONT/confirmarBorrado.js" defer></script>
     <script src="./FRONT/index.js" defer></script>
+     
 </head>
 <body>
     <div class="container">
@@ -53,6 +56,15 @@
                     </tr>
                 </tbody>
             </table>
+        </div>
+    </div>
+    <!-- Contenedor para la modal -->
+    <div class="modal" id="myModal" style="display: none;">
+        <div class="modal-content">
+            <span class="close-button" id="closeModal">&times;</span>
+            <div id="modalBody">
+                <!-- Aquí se inyectará el contenido del modal -->
+            </div>
         </div>
     </div>
 </body>
