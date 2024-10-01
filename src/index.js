@@ -116,7 +116,7 @@ app.put("/productosE/:id", async (req, res) => {
             .query(query);
 
         if (result.rowsAffected[0] > 0) {
-            //res.json({ message: "Producto actualizado exitosamente." });
+            
             res.json(result);
         } else {
             res.status(404).json({ error: "Producto no encontrado." });
